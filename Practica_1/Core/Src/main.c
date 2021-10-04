@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "led_driver.h"
+#include "button_driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -120,11 +121,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  for(int i=0; i<3; i++){
-		  LED_ON(i);
-		  LED_OFF(i);
-		  LED_TOGGLE(i);
-		  LED_OFF(i);
+	  uint8_t button = ReadButton();
+	  switch (button){
+	  case 0:
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, RESET);
+		  break;
+	  case 1:
+		  animation1();
+		  break;
+	  case 2:
+		  animation2();
+		  break;
+	  case 3:
+		  animation3();
+		  break;
 	  }
     /* USER CODE END WHILE */
 
@@ -524,11 +535,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin : BOTON_Pin */
+  GPIO_InitStruct.Pin = BOTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(BOTON_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ARD_A5_Pin ARD_A4_Pin ARD_A3_Pin ARD_A2_Pin 
                            ARD_A1_Pin ARD_A0_Pin */
