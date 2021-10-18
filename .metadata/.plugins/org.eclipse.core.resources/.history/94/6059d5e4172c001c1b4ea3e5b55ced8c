@@ -1,0 +1,23 @@
+/*
+ * ledTask.h
+ *
+ *  Created on: Oct 11, 2021
+ *      Author: Jorlu
+ */
+
+#ifndef SRC_LEDTASK_H_
+#define SRC_LEDTASK_H_
+
+#include "main.h"
+#include "stm32l4xx_hal.h"
+#include "led_driver.h"
+#include "button_driver.h"
+#include "FreeRTOS.h"
+#include "semphr.h"
+#include "task.h"
+
+void ledToggleTaskEj1(void *pArg);
+void ledToggleTaskEj2(void *pArg);
+void ledToggleTaskEj3(void *pArg);
+
+#endif /* SRC_LEDTASK_H_ */
