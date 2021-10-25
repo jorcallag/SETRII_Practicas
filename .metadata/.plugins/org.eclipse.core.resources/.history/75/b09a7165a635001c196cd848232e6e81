@@ -1,0 +1,28 @@
+/*
+ * Practica_3.c
+ *
+ *  Created on: Oct 25, 2021
+ *      Author: Jorlu
+ */
+
+#include "Practica_3.h"
+
+void Pressure_Test(void){
+	float press_value = 0.0;
+
+	BSP_PSENSOR_Init();
+	while(1){
+		press_value = BSP_PSENSOR_ReadPressure();
+		printf("PRESSURE is = %.2f mBar \n", press_value);
+	}
+}
+
+void Humidity_Test(void){
+	float humidity_value = 0.0;
+
+	BSP_HSENSOR_Init();
+	while(1){
+		humidity_value = BSP_HSENSOR_ReadPressure();
+		printf("HUMIDITY is = %.2f %%\n", humidity_value);
+	}
+}
