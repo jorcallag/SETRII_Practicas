@@ -82,14 +82,15 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 PUTCHAR_PROTOTYPE{
-	while(HAL_OK != HAL_UART_Transmit(&huart1, (uint8_t *) ch, 1, 30000)){
+	while(HAL_OK != HAL_UART_Transmit(&huart1, (uint8_t *) &ch, 1, 30000)){
 		;
 	}
 	return ch;
 }
 
 GETCHAR_PROTOTYPE{
-	while(HAL_OK != HAL_UART_Receive(&huart1, (uint8_t *) ch, 1, 30000)){
+	char ch;
+	while(HAL_OK != HAL_UART_Receive(&huart1, (uint8_t *) &ch, 1, 30000)){
 		;
 	}
 	return ch;
@@ -139,6 +140,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  Tempereature_Test();
+	  //Humidity_Test();
+	  //Pressure_Test();
+	  //Magneto_Test();
+	  //Gyro_Test();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -22,7 +22,7 @@ void Humidity_Test(void){
 
 	BSP_HSENSOR_Init();
 	while(1){
-		humidity_value = BSP_HSENSOR_ReadPressure();
+		humidity_value = BSP_HSENSOR_ReadHumidity();
 		printf("HUMIDITY is = %.2f %%\n", humidity_value);
 	}
 }
@@ -32,7 +32,7 @@ void Tempereature_Test(void){
 
 	BSP_TSENSOR_Init();
 	while(1){
-		temp_value = BSP_TSENSOR_ReadPressure();
+		temp_value = BSP_TSENSOR_ReadTemp();
 		printf("TEMPERATURE is = %.2f ºC\n", temp_value);
 	}
 }
